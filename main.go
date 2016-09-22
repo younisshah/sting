@@ -24,7 +24,7 @@ import (
 *
 * sting - a String utility library.
 *
-* After all "String" is the universal data structures.
+* After all "String" is the universal data structure.
 * Even aliens use it! All the world's knowledge is in the form of strings!
 */
 
