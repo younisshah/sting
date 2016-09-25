@@ -32,7 +32,7 @@ func TestAt(t *testing.T) {
 	}
 }
 
-func TestChars(t *testing.T)  {
+func TestChars(t *testing.T) {
 	s := "foobar"
 	result := Chars(s)
 	if !eqSlices(result, []string{"f", "o", "o", "b", "a", "r"}) {
@@ -78,8 +78,7 @@ func TestContainsAll(t *testing.T) {
 	}
 }
 
-
-func TestEndsWith(t *testing.T)  {
+func TestEndsWith(t *testing.T) {
 	s := "foo bar"
 	suffix := "BAR"
 	result := EndsWith(s, suffix)
@@ -96,10 +95,77 @@ func TestBase64Encode(t *testing.T) {
 	}
 }
 
-func TestBase64Decode(t *testing.T)  {
+func TestBase64Decode(t *testing.T) {
 	s := "c3Rpbmc="
 	result := Base64Decode(s)
 	if result != "sting" {
 		t.Error("Expected 'sting' got ", result)
+	}
+}
+
+func TestFirst(t *testing.T) {
+	s := "foobar"
+	result := First(s, 3)
+	if result != "foo" {
+		t.Error("Expected 'foo' got ", result)
+	}
+}
+
+func TestHead(t *testing.T) {
+	s := "foobar"
+	result := Head(s)
+	if result != "f" {
+		t.Error("Expected 'f' got ", result)
+	}
+}
+
+func TestInsert(t *testing.T) {
+	target := "foobar"
+	s := "baz"
+	result := Insert(target, s, 0)
+	if result != "bazfoobar" {
+		t.Error("Expected 'foobarbaz' got ", result)
+	}
+}
+
+func TestLeftPad(t *testing.T) {
+	target := "1"
+	symbol := "0"
+	result := LeftPad(target, symbol, 6)
+	if result != "000001" {
+		t.Error("Expected '000001' got ", result)
+	}
+}
+
+func TestRightPad(t *testing.T) {
+	target := "1"
+	symbol := "0"
+	result := RightPad(target, symbol, 6)
+	if result != "100000" {
+		t.Error("Expected '100000' got ", result)
+	}
+}
+
+func TestCamelCase(t *testing.T) {
+	s := "CamelCase"
+	result := CamelCase(s)
+	if result != "camelCase" {
+		t.Error("Expected 'camelCase' got ", result)
+	}
+}
+
+func TestKebabCase(t *testing.T) {
+	s := "kebab Case"
+	result := KebabCase(s)
+	if result != "kebab-case" {
+		t.Error("Expected 'kebab-case' got", result)
+	}
+}
+
+func TestSnakeCase(t *testing.T) {
+	s := "snake Case"
+	result := SnakeCase(s)
+	if result != "snake_case" {
+		t.Error("Expected 'snake_case' got", result)
 	}
 }

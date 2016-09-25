@@ -4,6 +4,7 @@ import (
 	"strings"
 	"sort"
 	"encoding/base64"
+	"fmt"
 )
 
 /**
@@ -83,8 +84,8 @@ func ContainsAll(needles string, haystack []string) bool {
 	} else {
 		sort.Strings(_needles)
 		sort.Strings(haystack)
-		for i:= 0 ; i < len(haystack); i++ {
-			if(strings.Trim(haystack[i], " ") != _needles[i]) {
+		for i := 0; i < len(haystack); i++ {
+			if (strings.Trim(haystack[i], " ") != _needles[i]) {
 				return false
 			}
 		}
@@ -111,4 +112,96 @@ func Base64Decode(s string) string {
 		panic(err)
 	}
 	return string(decodedBytes)
+}
+
+// Returns the first n chars of the give string
+func First(s string, n int) string {
+	if s != "" && (n > 0 && n < len(s)) {
+		return s[0:n]
+	} else {
+		return s
+	}
+}
+
+// Returns the first character of a string
+func Head(s string) string {
+	if len(s) > 0 {
+		return string(s[0])
+	} else {
+		return s
+	}
+}
+
+// Insert a 'string' at 'index' into the given 'string'
+// NOTE: indexing/counting starts at 0
+func Insert(target, ins string, index int) string {
+	if index <= len(target) {
+		result := ""
+		switch index {
+		case 0 :
+			result = ins + target
+			break
+		case len(target):
+			result = target + ins
+			break
+		default:
+			result = target[0:index] + ins + target[index:]
+		}
+		return result
+	} else {
+		return target
+	}
+}
+
+// Returns a new string of a given length left padded with the given symbol
+func LeftPad(target, symbol string, length int) string {
+	if length == 0 || length < 0 {
+		return target
+	}
+	accumulator := ""
+	for i := 0; i < length - 1; i++ {
+		accumulator += symbol
+	}
+	return accumulator + target
+}
+
+// Returns a new string of a given length right padded with the given symbol
+func RightPad(target, symbol string, length int) string {
+	if length == 0 || length < 0 {
+		return target
+	}
+	accumulator := ""
+	for i := 0; i < length - 1; i++ {
+		accumulator += symbol
+	}
+	return target + accumulator
+}
+
+// Returns the string as "camelCase'd"
+func CamelCase(s string) string {
+	if strings.Contains(s, "-") {
+		return strings.ToLower(string(s[0])) + strings.Replace(s[1:], "-", "", -1)
+	} else {
+		return strings.ToLower(string(s[0])) + s[1:]
+	}
+}
+
+// Returns the string as "kebab-case'd"
+func KebabCase(s string) string {
+	fields := strings.Fields(s)
+	lowerCase(&fields)
+	return strings.Join(fields, "-")
+}
+
+// Returns the string as "snake_case'd"
+func SnakeCase(s string) string {
+	fields := strings.Fields(s)
+	lowerCase(&fields)
+	return strings.Join(fields, "_")
+}
+
+func lowerCase(_fields *[]string) {
+	for i := 0; i < len(*_fields); i++ {
+		(*_fields)[i] = strings.ToLower((*_fields)[i])
+	}
 }
