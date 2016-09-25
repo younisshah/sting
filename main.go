@@ -4,7 +4,6 @@ import (
 	"strings"
 	"sort"
 	"encoding/base64"
-	"fmt"
 )
 
 /**
@@ -84,8 +83,8 @@ func ContainsAll(needles string, haystack []string) bool {
 	} else {
 		sort.Strings(_needles)
 		sort.Strings(haystack)
-		for i := 0; i < len(haystack); i++ {
-			if (strings.Trim(haystack[i], " ") != _needles[i]) {
+		for i:= 0 ; i < len(haystack); i++ {
+			if(strings.Trim(haystack[i], " ") != _needles[i]) {
 				return false
 			}
 		}
