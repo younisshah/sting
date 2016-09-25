@@ -83,8 +83,8 @@ func ContainsAll(needles string, haystack []string) bool {
 	} else {
 		sort.Strings(_needles)
 		sort.Strings(haystack)
-		for i:= 0 ; i < len(haystack); i++ {
-			if(strings.Trim(haystack[i], " ") != _needles[i]) {
+		for i := 0; i < len(haystack); i++ {
+			if (strings.Trim(haystack[i], " ") != _needles[i]) {
 				return false
 			}
 		}
@@ -144,7 +144,7 @@ func Insert(target, ins string, index int) string {
 			result = target + ins
 			break
 		default:
-			result = target[0:index] + ins + target[index:]
+			result = target[0:index + 1] + ins + target[index + 1:]
 		}
 		return result
 	} else {

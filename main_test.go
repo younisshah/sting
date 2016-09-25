@@ -120,11 +120,11 @@ func TestHead(t *testing.T) {
 }
 
 func TestInsert(t *testing.T) {
-	target := "foobar"
+	target := "foobarqooz"
 	s := "baz"
-	result := Insert(target, s, 0)
-	if result != "bazfoobar" {
-		t.Error("Expected 'foobarbaz' got ", result)
+	result := Insert(target, s, 5)
+	if result != "foobarbazqooz" {
+		t.Error("Expected 'foobarbazqooz' got ", result)
 	}
 }
 

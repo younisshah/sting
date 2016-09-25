@@ -58,4 +58,45 @@ Base64Encode("sting") // => "c3Rpbmc="
 Base64Decode("c3Rpbmc=") // => "sting"
 ```
 
+#### First - Returns the first n chars of the give string
+```go
+First("foobar", 3) // => "foo"
+```
+
+#### Head - Returns the first character of a string
+```go
+Head("foobar") // => "f"
+```
+
+#### Insert - Insert a 'string' at 'index' into the given 'string'
+_NOTE: indexing/counting starts at 0_
+```go
+Insert("foobarqooz", "baz", 5) // => "foobarbazqooz"
+```
+
+#### LeftPad - Returns a new string of a given length left-padded with the given symbol
+```go
+LeftPad("1", "0", 5) // => "00001"
+```
+
+#### RightPad - Returns a new string of a given length right-padded with the given symbol
+```go
+RightPad("1", "0", 5) // => "10000"
+```
+
+#### CamelCase - Returns the string as "_camelCase'd_"
+```go
+CamelCase("CamelCase") // => "camelCase"
+```
+
+#### KebabCase - Returns the string as "_kebab-case'd_"
+```go
+KebabCase("kebab Case") // => "kebab-case"
+```
+
+#### SnakeCase - Returns the string as "_snake_case'd_"
+```go
+SnakeCase("snake Case") // => "snake_case"
+```
+
 ## More functions to come :construction_worker:
