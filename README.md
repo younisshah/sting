@@ -99,4 +99,9 @@ KebabCase("kebab Case") // => "kebab-case"
 SnakeCase("snake Case") // => "snake_case"
 ```
 
+#### Transliterate - // Removes all invalid characters. ā => a, ب => b, etc
+```go
+Transliterate("stἵnĝ") // => "sting"
+```
+
 ## More functions to come :construction_worker:

@@ -199,6 +199,18 @@ func SnakeCase(s string) string {
 	return strings.Join(fields, "_")
 }
 
+// Removes all invalid characters.
+// ā => a, ب => b, etc
+func Transliterate(s string) string {
+	ascii := Ascii()
+	for k, v := range ascii {
+		for _, w := range v {
+			s = strings.Replace(s, w, k, -1)
+		}
+	}
+	return s
+}
+
 func lowerCase(_fields *[]string) {
 	for i := 0; i < len(*_fields); i++ {
 		(*_fields)[i] = strings.ToLower((*_fields)[i])

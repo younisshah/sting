@@ -169,3 +169,11 @@ func TestSnakeCase(t *testing.T) {
 		t.Error("Expected 'snake_case' got", result)
 	}
 }
+
+func TestTransliterate(t *testing.T) {
+	s := "stἵnĝ"
+	result := Transliterate(s)
+	if result != "sting" {
+		t.Error("Expected 'sting' got ", result)
+	}
+}
