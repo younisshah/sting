@@ -84,7 +84,7 @@ LeftPad("1", "0", 5) // => "00001"
 RightPad("1", "0", 5) // => "10000"
 ```
 
-#### Reverse -  // Reverse a given string 'gnits' => 'sting'
+#### Reverse - Reverses a given string 'gnits' => 'sting'
 ```go
 Reverse("gnits") // => "sting"
 ```
