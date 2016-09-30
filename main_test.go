@@ -177,3 +177,11 @@ func TestTransliterate(t *testing.T) {
 		t.Error("Expected 'sting' got ", result)
 	}
 }
+
+func TestReverse(t *testing.T) {
+	s := "gnits"
+	result := Reverse(s)
+	if result != "sting" {
+		t.Error("Expected 'sting' got ", result)
+	}
+}

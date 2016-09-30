@@ -84,6 +84,11 @@ LeftPad("1", "0", 5) // => "00001"
 RightPad("1", "0", 5) // => "10000"
 ```
 
+#### Reverse -  // Reverse a given string 'gnits' => 'sting'
+```go
+Reverse("gnits") // => "sting"
+```
+
 #### CamelCase - Returns the string as "_camelCase'd_"
 ```go
 CamelCase("CamelCase") // => "camelCase"

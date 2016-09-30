@@ -211,6 +211,22 @@ func Transliterate(s string) string {
 	return s
 }
 
+// Reverse a given string 'gnits' => 'sting'
+func Reverse(s string) string {
+	if len(s) == 0 {
+		return s
+	}
+	bytes := []byte(s)
+	length := len(s)
+	halfLength := length / 2
+	for i := 0; i < halfLength; i++ {
+		temp := bytes[i]
+		bytes[i] = bytes[length - 1 - i]
+		bytes[length - 1 - i] = temp
+	}
+	return string(bytes)
+}
+
 func lowerCase(_fields *[]string) {
 	for i := 0; i < len(*_fields); i++ {
 		(*_fields)[i] = strings.ToLower((*_fields)[i])
