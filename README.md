@@ -38,7 +38,7 @@ Chars("foobar") // => ["f", "o", "o", "b", "a", "r"]
 Chars("foo      bar") // => "foo bar"
 ```
 
-#### ContainsAll - Checks whether the haystack conatins all the needles with inline whitespaces taken care of.
+#### ContainsAll - Checks whether the haystack contains all the needles with inline whitespaces taken care of.
 ```go
 ContainsAll("foo     bar baz", []string{"foo", "baz", "bar"}) // => true
 ```

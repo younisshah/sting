@@ -84,7 +84,7 @@ func ContainsAll(needles string, haystack []string) bool {
 		sort.Strings(_needles)
 		sort.Strings(haystack)
 		for i := 0; i < len(haystack); i++ {
-			if (strings.Trim(haystack[i], " ") != _needles[i]) {
+			if strings.Trim(haystack[i], " ") != _needles[i] {
 				return false
 			}
 		}
